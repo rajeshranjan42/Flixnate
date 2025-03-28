@@ -1,0 +1,182 @@
+/* Delete Modal Styles */
+.delete-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.delete-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.delete-modal-content {
+    background: var(--darker-bg);
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    padding: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+}
+
+.delete-modal.active .delete-modal-content {
+    transform: translateY(0);
+}
+
+.delete-modal-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-modal-header h3 {
+    margin: 0;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.delete-modal-body {
+    padding: 20px;
+    color: #fff;
+}
+
+.content-title {
+    color: #EC4899;
+    font-weight: 500;
+}
+
+.warning {
+    color: #ef4444;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.delete-modal-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.delete-modal-footer button {
+    padding: 8px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.cancel-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+}
+
+.delete-btn:disabled,
+.cancel-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.delete-modal-status {
+    padding: 10px 20px;
+}
+
+.loading {
+    color: #3498db;
+}
+
+.success {
+    color: #10b981;
+}
+
+.error {
+    color: #ef4444;
+}
+
+.delete-modal-content.loading {
+    opacity: 0.7;
+}
+
+/* Animation for row deletion */
+@keyframes fadeOutUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+/* Loading spinner */
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-left: 10px;
+    border: 2px solid currentColor;
+    border-right-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
